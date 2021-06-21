@@ -34,7 +34,7 @@ variables:
   FlutterVersion: 'latest'
 
 jobs:
-  - job: Testing of SonarQube with Flutter
+  - job: Testing_of_SonarQube_with_Flutter
     pool: sh_pool
 
     steps:
