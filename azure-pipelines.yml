@@ -45,30 +45,6 @@ jobs:
       #    version: '$(FlutterVersion)'
 
       - task: SonarQubePrepare@4
-        displayName: Setup sonar
-        inputs:
-          SonarQube: 'SonarQube Service Connection'
-          scannerMode: 'CLI'
-          configMode: 'file'
-
-      - task: CmdLine@2
-        displayName: Run install
-        inputs:
-          script: 'flutter pub get'
-
-      - task: CmdLine@2
-        displayName: Run test
-        inputs:
-          script: 'flutter test --machine > tests.output'
-
-      - task: CmdLine@2
-        displayName: Run coverage
-        inputs:
-          script: 'flutter test --coverage'
-
-      #- task: SonarQubeAnalyze@4
-      #  displayName: Run analyze
-      - task: SonarQubePrepare@4
         inputs:
           SonarQube: 'SonarQube Service Connection'
           scannerMode: 'CLI'
@@ -86,6 +62,24 @@ jobs:
             sonar.host.url=http://deepflamessonqrqubedns.eastus.azurecontainer.io:9000
             sonar.javascript.lcov.reportPaths=./coverage/lcov.info
             sonar.dart.analysis.useExistingOptions=false
+
+      - task: CmdLine@2
+        displayName: Run install
+        inputs:
+          script: 'flutter pub get'
+
+      - task: CmdLine@2
+        displayName: Run test
+        inputs:
+          script: 'flutter test --machine > tests.output'
+
+      - task: CmdLine@2
+        displayName: Run coverage
+        inputs:
+          script: 'flutter test --coverage'
+
+      - task: SonarQubeAnalyze@4
+        displayName: Run analyze
 
       - task: SonarQubePublish@4
         displayName: Run publish
