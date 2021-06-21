@@ -73,6 +73,8 @@ jobs:
           SonarQube: 'SonarQube Service Connection'
           scannerMode: 'CLI'
           configMode: 'manual'
+          cliProjectName: 'rr_web_front'
+          cliProjectKey: 'rr_$(Build.Repository.Name)'
           cliSources: '.'
           extraProperties: |
             # Additional properties that will be passed to the scanner, 
