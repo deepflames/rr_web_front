@@ -59,7 +59,7 @@ jobs:
       - task: CmdLine@2
         displayName: Run test
         inputs:
-          - scripts: 'flutter test --machine > tests.output'
+          script: 'flutter test --machine > tests.output'
 
       - task: CmdLine@2
         displayName: Run coverage
