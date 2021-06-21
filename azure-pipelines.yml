@@ -68,7 +68,7 @@ jobs:
           script: |
             echo Hack SonarQube
 
-            export SONARQUBE_SCANNER_PARAMS=$(echo $SONARQUBE_SCANNER_PARAMS | sed -E 's/sonar.branch.name:main,//g')
+            export SONARQUBE_SCANNER_PARAMS=$(echo $SONARQUBE_SCANNER_PARAMS | sed -E 's/"sonar.branch.name":"main",//g')
 
             printenv
 
