@@ -66,8 +66,20 @@ jobs:
         inputs:
           script: 'flutter test --coverage'
 
-      - task: SonarQubeAnalyze@4
-        displayName: Run analyze
+      #- task: SonarQubeAnalyze@4
+      #  displayName: Run analyze
+      - task: SonarQubePrepare@4
+        inputs:
+          SonarQube: 'SonarQube Service Connection'
+          scannerMode: 'CLI'
+          configMode: 'manual'
+          cliSources: '.'
+          extraProperties: |
+            # Additional properties that will be passed to the scanner, 
+            # Put one key=value per line, example:
+            # sonar.exclusions=**/*.bin
+            sonar.projectName=rr_web_front
+            sonar.projectKey=rr_web_front
 
       - task: SonarQubePublish@4
         displayName: Run publish
