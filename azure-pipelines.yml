@@ -77,7 +77,7 @@ jobs:
             #sonar.login=5811d224cbb2d2621a8bd357a67a781342746cfd
             sonar.login=0a0f2bf0859a1a0d3c5a2fa31e2c913b9234b7b8
             #sonar.host.url=http://deepflamessonqrqubedns.eastus.azurecontainer.io:9000
-            sonar.host.url=http://40.114.36.229
+            sonar.host.url=https://40.114.36.229
             sonar.javascript.lcov.reportPaths=./coverage/lcov.info
             sonar.dart.analysis.useExistingOptions=false
 
