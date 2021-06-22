@@ -60,6 +60,7 @@ jobs:
           script: 'flutter test --coverage'
 
       - task: SonarQubePrepare@4
+        displayName: SonarQube Prepare
         inputs:
           SonarQube: 'SonarQube Service Connection'
           scannerMode: 'CLI'
@@ -82,6 +83,7 @@ jobs:
             sonar.dart.analysis.useExistingOptions=false
 
       - task: CmdLine@2
+        displayName: SonarQube Hack
         inputs:
           script: |
             echo Hack SonarQube
@@ -95,9 +97,9 @@ jobs:
             printenv
 
       - task: SonarQubeAnalyze@4
-        displayName: Run analyze
+        displayName: SonarQube analyze
 
       - task: SonarQubePublish@4
-        displayName: Run publish
+        displayName: SonarQube publish
         inputs:
           pollingTimeoutSec: '300'
