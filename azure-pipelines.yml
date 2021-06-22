@@ -72,9 +72,11 @@ jobs:
             # Put one key=value per line, example:
             # sonar.exclusions=**/*.bin
             sonar.projectName=rr_web_front
+            #sonar.projectKey=rr_web_front
             sonar.projectKey=rr_web_front_rr_web_front
             sonar.login=5811d224cbb2d2621a8bd357a67a781342746cfd
-            sonar.host.url=http://deepflamessonqrqubedns.eastus.azurecontainer.io:9000
+            #sonar.host.url=http://deepflamessonqrqubedns.eastus.azurecontainer.io:9000
+            sonar.host.url=http://40.114.36.229
             sonar.javascript.lcov.reportPaths=./coverage/lcov.info
             sonar.dart.analysis.useExistingOptions=false
 
