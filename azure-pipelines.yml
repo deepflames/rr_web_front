@@ -70,6 +70,10 @@ jobs:
 
             export SONARQUBE_SCANNER_PARAMS=$(echo $SONARQUBE_SCANNER_PARAMS | sed -E 's/"sonar.branch.name":"main",//g')
 
+            params=$(echo $SONARQUBE_SCANNER_PARAMS | sed -E 's/"sonar.branch.name":"main",//g')
+
+            echo "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
+
             printenv
 
       - task: CmdLine@2
