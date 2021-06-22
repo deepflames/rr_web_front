@@ -44,6 +44,21 @@ jobs:
       #    channel: '$(FlutterChannel)'
       #    version: '$(FlutterVersion)'
 
+      - task: CmdLine@2
+        displayName: Run install
+        inputs:
+          script: 'flutter pub get'
+
+      - task: CmdLine@2
+        displayName: Run test
+        inputs:
+          script: 'flutter test --machine > tests.output'
+
+      - task: CmdLine@2
+        displayName: Run coverage
+        inputs:
+          script: 'flutter test --coverage'
+
       - task: SonarQubePrepare@4
         inputs:
           SonarQube: 'SonarQube Service Connection'
@@ -75,21 +90,6 @@ jobs:
             echo "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
 
             printenv
-
-      - task: CmdLine@2
-        displayName: Run install
-        inputs:
-          script: 'flutter pub get'
-
-      - task: CmdLine@2
-        displayName: Run test
-        inputs:
-          script: 'flutter test --machine > tests.output'
-
-      - task: CmdLine@2
-        displayName: Run coverage
-        inputs:
-          script: 'flutter test --coverage'
 
       - task: SonarQubeAnalyze@4
         displayName: Run analyze
